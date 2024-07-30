@@ -7,7 +7,7 @@ Welcome to my **Sandbox**! This is a playful space where I explore and experimen
 - 🧪 **Experiments**: Trying out new ideas and testing code snippets.
 - 🎨 **Creative Coding**: Fun projects and creative challenges.
 - 🐍 **Python Adventures**: Learning the ins and outs of Python, from basics to more advanced topics.
-- 💡 **Lessons Learned**: Sharing insights, mistakes, and tips along the way.
+- 💡  **Tutorials and Lessons**: Scripts from various tutorials and lessons
 
 ### Feel free to explore! 
 # | (• ◡•)| (❍ᴥ❍ʋ)
