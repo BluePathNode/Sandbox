@@ -8,4 +8,4 @@ print("")
     
 # Ternary Operator
 
-print("Right on!") if meaning > 10 else print("Not today!")    
+print("Right on dude!") if meaning > 10 else print("Not today man!")    
