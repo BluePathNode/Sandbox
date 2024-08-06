@@ -1,5 +1,4 @@
-# Create the fun and colorful markdown text for Conda Environment Management
-fun_conda_markdown_text = """
+
 # 🐍 Conda Environment Management 🐍
 
 ---

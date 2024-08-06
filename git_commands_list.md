@@ -16,16 +16,21 @@
    🌟 Make a copy of a remote repository on your local machine.
 
 3. **Check the status of your working directory:**
+  
    ```bash
-   git status
+   git status 
    ```
    🕵️‍♂️ See which files have been modified.
 
 4. **Add files to the staging area:**
+
    ```bash
    git add <file>
-   git add .
+   git add file1.txt file2.txt file3.txt
+   git add .  
+   git add src/
    ```
+
    📥 Stage your changes for the next commit.
 
 5. **Commit your changes with a message:**
@@ -122,49 +127,97 @@
     ```
     🔍 Inspect the details of a particular commit.
 
+19. **View a file's history:**
+    ```bash
+    git log -- <file>
+    ```
+    📜 See the commit history of a specific file.
+
+20. **Search commit messages:**
+    ```bash
+    git log --grep="<search-term>"
+    ```
+    🔍 Find commits containing a specific keyword in the message.
+
+21. **View the history of a line in a file:**
+    ```bash
+    git blame <file>
+    ```
+    🕵️‍♂️ See who made changes to each line of a file.
+
 ## 🗃️ Stashing Changes
 
-19. **Stash your changes:**
+22. **Stash your changes:**
     ```bash
     git stash
     ```
     👜 Save your changes temporarily.
 
-20. **List stashes:**
+23. **List stashes:**
     ```bash
     git stash list
     ```
     🗂️ See all your stashes.
 
-21. **Apply the latest stash:**
+24. **Apply the latest stash:**
     ```bash
     git stash apply
     ```
     📂 Reapply your stashed changes.
 
+25. **Apply a specific stash:**
+    ```bash
+    git stash apply stash@{n}
+    ```
+    📂 Apply a specific stash from the list.
+
+26. **Drop a stash:**
+    ```bash
+    git stash drop stash@{n}
+    ```
+    🗑️ Remove a specific stash.
+
+27. **Pop the latest stash:**
+    ```bash
+    git stash pop
+    ```
+    📤 Apply and remove the latest stash.
+
 ## ⏪ Undoing Changes
 
-22. **Unstage a file:**
+28. **Unstage a file:**
     ```bash
     git reset HEAD <file>
     ```
     ⏸️ Remove a file from the staging area.
 
-23. **Revert changes in a file:**
+29. **Revert changes in a file:**
     ```bash
     git checkout -- <file>
     ```
     ↩️ Discard changes in your working directory.
 
-24. **Reset to a previous commit (destructive):**
+30. **Reset to a previous commit (destructive):**
     ```bash
     git reset --hard <commit-hash>
     ```
     ⚠️ Revert your repository to an earlier state.
 
+31. **Reset to a previous commit (safe):**
+    ```bash
+    git reset --soft <commit-hash>
+    ```
+    ⏪ Keep changes in working directory but move HEAD.
+
+32. **Revert a specific commit:**
+    ```bash
+    git revert <commit-hash>
+    ```
+    🔄 Create a new commit that undoes the changes from a previous commit.
+
 ## 🚫 Ignoring Files
 
-25. **Create a `.gitignore` file:**
+33. **Create a `.gitignore` file:**
     ```bash
     # Ignore all .log files
     *.log
@@ -176,21 +229,39 @@
 
 ## 🏷️ Tagging
 
-26. **Create a new tag:**
+34. **Create a new tag:**
     ```bash
     git tag <tag-name>
     ```
     🏷️ Mark important points in your project's history.
 
-27. **Push a specific tag:**
+35. **Push a specific tag:**
     ```bash
     git push origin <tag-name>
     ```
     🚀 Share your tags with the remote repository.
 
+36. **List tags:**
+    ```bash
+    git tag
+    ```
+    📋 See all tags in the repository.
+
+37. **Delete a tag:**
+    ```bash
+    git tag -d <tag-name>
+    ```
+    🗑️ Remove a tag from the local repository.
+
+38. **Delete a remote tag:**
+    ```bash
+    git push origin --delete <tag-name>
+    ```
+    🗑️ Remove a tag from the remote repository.
+
 ## 🕶️ Aliases
 
-28. **Create useful Git aliases to save time:**
+39. **Create useful Git aliases to save time:**
     ```bash
     git config --global alias.st status
     git config --global alias.co checkout
@@ -201,34 +272,80 @@
 
 ## 🔍 Checking Differences
 
-29. **Check differences between working directory and staging area:**
+40. **Check differences between working directory and staging area:**
     ```bash
     git diff
     ```
     🔍 See what changes are not yet staged.
 
-30. **Check differences between staging area and the last commit:**
+41. **Check differences between staging area and the last commit:**
     ```bash
     git diff --cached
     ```
     🧐 Review changes that are staged for commit.
 
+42. **Check differences between two commits:**
+    ```bash
+    git diff <commit-hash-1> <commit-hash-2>
+    ```
+    📊 Compare changes between two commits.
+
 ## 🗑️ Deleting Files
 
-31. **Delete a file from the repository and stage the deletion:**
+43. **Delete a file from the repository and stage the deletion:**
     ```bash
     git rm <file>
     ```
     🗑️ Remove a file from both your working directory and the repository.
 
-32. **Commit the deletion with a message:**
+44. **Commit the deletion with a message:**
     ```bash
     git commit -m "Delete <file>"
     ```
     💬 Commit the removal of the file with a message.
 
-33. **Push the deletion to the remote repository:**
+45. **Push the deletion to the remote repository:**
     ```bash
     git push
     ```
     📤 Update the remote repository to reflect the deletion.
+
+## 🛠️ Advanced Commands
+
+46. **Cherry-pick a commit:**
+    ```bash
+    git cherry-pick <commit-hash>
+    ```
+    🍒 Apply the changes from a specific commit to the current branch.
+
+47. **Squash commits:**
+    ```bash
+    git rebase -i HEAD~<number-of-commits>
+    ```
+    🎯 Combine multiple commits into one.
+
+48. **Bisect to find a bug:**
+    ```bash
+    git bisect start
+    git bisect bad
+    git bisect good <commit-hash>
+    ```
+    🔍 Use binary search to find the commit that introduced a bug.
+
+49. **Add a submodule:**
+    ```bash
+    git submodule add <repository-url>
+    ```
+    📦 Include a repository inside another repository.
+
+50. **Update submodules:**
+    ```bash
+    git submodule update --remote
+    ```
+    🔄 Update the submodules to the latest commit.
+
+51. **Remove a file from Git tracking but keep it locally:**
+    ```bash
+    git rm --cached <file>
+    ```
+---
