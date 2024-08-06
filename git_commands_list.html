@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands Cheat Sheet</title>
+</head>
+<body>
+
+<h1>🎉 Git Commands Cheat Sheet 🎉</h1>
+
+<h2>🚀 Basic Commands</h2>
+
+<ol>
+    <li>
+        <strong>Initialize a new Git repository:</strong>
+        <pre><code>git init</code></pre>
+        <p>✨ Start tracking your project with Git!</p>
+    </li>
+
+    <li>
+        <strong>Clone an existing repository:</strong>
+        <pre><code>git clone &lt;repository-url&gt;</code></pre>
+        <p>🌟 Make a copy of a remote repository on your local machine.</p>
+    </li>
+
+    <li>
+        <strong>Check the status of your working directory:</strong>
+        <pre><code>git status</code></pre>
+        <p>🕵️‍♂️ See which files have been modified.</p>
+    </li>
+
+    <li>
+        <strong>Add files to the staging area:</strong>
+        <pre><code>git add &lt;file&gt;
+git add file1.txt file2.txt file3.txt
+git add .
+git add src/</code></pre>
+        <p>📥 Stage your changes for the next commit.</p>
+    </li>
+
+    <li>
+        <strong>Commit your changes with a message:</strong>
+        <pre><code>git commit -m "Your commit message"</code></pre>
+        <p>💬 Save your changes in the repository with a descriptive message.</p>
+    </li>
+</ol>
+
+<h2>🌳 Branch Management</h2>
+
+<ol start="6">
+    <li>
+        <strong>List all branches:</strong>
+        <pre><code>git branch</code></pre>
+        <p>📋 See all branches in your repository.</p>
+    </li>
+
+    <li>
+        <strong>Create a new branch:</strong>
+        <pre><code>git branch &lt;branch-name&gt;</code></pre>
+        <p>🌱 Start working on something new without affecting the main branch.</p>
+    </li>
+
+    <li>
+        <strong>Switch to a different branch:</strong>
+        <pre><code>git checkout &lt;branch-name&gt;</code></pre>
+        <p>🔄 Move to another branch.</p>
+    </li>
+
+    <li>
+        <strong>Create and switch to a new branch:</strong>
+        <pre><code>git checkout -b &lt;branch-name&gt;</code></pre>
+        <p>🚀 Create a new branch and start working on it immediately.</p>
+    </li>
+
+    <li>
+        <strong>Delete a branch:</strong>
+        <pre><code>git branch -d &lt;branch-name&gt;
+git branch -D &lt;branch-name&gt;</code></pre>
+        <p>🗑️ Clean up branches you no longer need.</p>
+    </li>
+</ol>
+
+<h2>📤 Pushing and Pulling</h2>
+
+<ol start="11">
+    <li>
+        <strong>Set up a remote repository:</strong>
+        <pre><code>git remote add origin &lt;repository-url&gt;</code></pre>
+        <p>🌐 Connect your local repository to a remote one.</p>
+    </li>
+
+    <li>
+        <strong>Push changes to a remote repository:</strong>
+        <pre><code>git push -u origin &lt;branch-name&gt;
+git push</code></pre>
+        <p>📤 Send your commits to the remote repository.</p>
+    </li>
+
+    <li>
+        <strong>Pull changes from a remote repository:</strong>
+        <pre><code>git pull</code></pre>
+        <p>📥 Get the latest changes from the remote repository.</p>
+    </li>
+</ol>
+
+<h2>🔄 Merging and Rebasing</h2>
+
+<ol start="14">
+    <li>
+        <strong>Merge a branch into the current branch:</strong>
+        <pre><code>git merge &lt;branch-name&gt;</code></pre>
+        <p>🌈 Combine changes from another branch.</p>
+    </li>
+
+    <li>
+        <strong>Rebase the current branch onto another branch:</strong>
+        <pre><code>git rebase &lt;branch-name&gt;</code></pre>
+        <p>🛠️ Reapply commits on top of another base tip.</p>
+    </li>
+</ol>
+
+<h2>🔍 Viewing History</h2>
+
+<ol start="16">
+    <li>
+        <strong>View commit history:</strong>
+        <pre><code>git log</code></pre>
+        <p>📜 See a list of all commits in the current branch.</p>
+    </li>
+
+    <li>
+        <strong>View commit history with a graph:</strong>
+        <pre><code>git log --graph --oneline --all</code></pre>
+        <p>🌳 Visualize your commit history.</p>
+    </li>
+
+    <li>
+        <strong>View changes made in a specific commit:</strong>
+        <pre><code>git show &lt;commit-hash&gt;</code></pre>
+        <p>🔍 Inspect the details of a particular commit.</p>
+    </li>
+
+    <li>
+        <strong>View a file's history:</strong>
+        <pre><code>git log -- &lt;file&gt;</code></pre>
+        <p>📜 See the commit history of a specific file.</p>
+    </li>
+
+    <li>
+        <strong>Search commit messages:</strong>
+        <pre><code>git log --grep="&lt;search-term&gt;"</code></pre>
+        <p>🔍 Find commits containing a specific keyword in the message.</p>
+    </li>
+
+    <li>
+        <strong>View the history of a line in a file:</strong>
+        <pre><code>git blame &lt;file&gt;</code></pre>
+        <p>🕵️‍♂️ See who made changes to each line of a file.</p>
+    </li>
+</ol>
+
+<h2>🗃️ Stashing Changes</h2>
+
+<ol start="22">
+    <li>
+        <strong>Stash your changes:</strong>
+        <pre><code>git stash</code></pre>
+        <p>👜 Save your changes temporarily.</p>
+    </li>
+
+    <li>
+        <strong>List stashes:</strong>
+        <pre><code>git stash list</code></pre>
+        <p>🗂️ See all your stashes.</p>
+    </li>
+
+    <li>
+        <strong>Apply the latest stash:</strong>
+        <pre><code>git stash apply</code></pre>
+        <p>📂 Reapply your stashed changes.</p>
+    </li>
+
+    <li>
+        <strong>Apply a specific stash:</strong>
+        <pre><code>git stash apply stash@{n}</code></pre>
+        <p>📂 Apply a specific stash from the list.</p>
+    </li>
+
+    <li>
+        <strong>Drop a stash:</strong>
+        <pre><code>git stash drop stash@{n}</code></pre>
+        <p>🗑️ Remove a specific stash.</p>
+    </li>
+
+    <li>
+        <strong>Pop the latest stash:</strong>
+        <pre><code>git stash pop</code></pre>
+        <p>📤 Apply and remove the latest stash.</p>
+    </li>
+</ol>
+
+<h2>⏪ Undoing Changes</h2>
+
+<ol start="28">
+    <li>
+        <strong>Unstage a file:</strong>
+        <pre><code>git reset HEAD &lt;file&gt;</code></pre>
+        <p>⏸️ Remove a file from the staging area.</p>
+    </li>
+
+    <li>
+        <strong>Revert changes in a file:</strong>
+        <pre><code>git checkout -- &lt;file&gt;</code></pre>
+        <p>↩️ Discard changes in your working directory.</p>
+    </li>
+
+    <li>
+        <strong>Reset to a previous commit (destructive):</strong>
+        <pre><code>git reset --hard &lt;commit-hash&gt;</code></pre>
+        <p>⚠️ Revert your repository to an earlier state.</p>
+    </li>
+
+    <li>
+        <strong>Reset to a previous commit (safe):</strong>
+        <pre><code>git reset --soft &lt;commit-hash&gt;</code></pre>
+        <p>⏪ Keep changes in working directory but move HEAD.</p>
+    </li>
+
+    <li>
+        <strong>Revert a specific commit:</strong>
+        <pre><code>git revert &lt;commit-hash&gt;</code></pre>
+        <p>🔄 Create a new commit that undoes the changes from a previous commit.</p>
+    </li>
+</ol>
+
+<h2>🚫 Ignoring Files</h2>
+
+<ol start="33">
+    <li>
+        <strong>Create a <code>.gitignore</code> file:</strong>
+        <pre><code># Ignore all .log files
+*.log
+
+# Ignore the node_modules directory
+node_modules/</code></pre>
+        <p>🛡️ Tell Git which files to ignore.</p>
+    </li>
+</ol>
+
+<h2>🏷️ Tagging</h2>
+
+<ol start="34">
+    <li>
+        <strong>Create a new tag:</strong>
+        <pre><code>git tag &lt;tag-name&gt;</code></pre>
+        <p>🏷️ Mark important points in your project's history.</p>
+    </li>
+
+    <li>
+        <strong>Push a specific tag:</strong>
+        <pre><code>git push origin &lt;tag-name&gt;</code></pre>
+        <p>🚀 Share your tags with the remote repository.</p>
+    </li>
+
+    <li>
+        <strong>List tags:</strong>
+        <pre><code>git tag</code></pre>
+        <p>📋 See all tags in the repository.</p>
+    </li>
+
+    <li>
+        <strong>Delete a tag:</strong>
+        <pre><code>git tag -d &lt;tag-name&gt;</code></pre>
+        <p>🗑️ Remove a tag from the local repository.</p>
+    </li>
+
+    <li>
+        <strong>Delete a remote tag:</strong>
+        <pre><code>git push origin --delete &lt;tag-name&gt;</code></pre>
+        <p>🗑️ Remove a tag from the remote repository.</p>
+    </li>
+</ol>
+
+<h2>🕶️ Aliases</h2>
+
+<ol start="39">
+    <li>
+        <strong>Create useful Git aliases to save time:</strong>
+        <pre><code>git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch</code></pre>
+        <p>🏎️ Speed up your workflow with shortcuts.</p>
+    </li>
+</ol>
+
+<h2>🔍 Checking Differences</h2>
+
+<ol start="40">
+    <li>
+        <strong>Check differences between working directory and staging area:</strong>
+        <pre><code>git diff</code></pre>
+        <p>🔍 See what changes are not yet staged.</p>
+    </li>
+
+    <li>
+        <strong>Check differences between staging area and the last commit:</strong>
+        <pre><code>git diff --cached</code></pre>
+        <p>🧐 Review changes that are staged for commit.</p>
+    </li>
+
+    <li>
+        <strong>Check differences between two commits:</strong>
+        <pre><code>git diff &lt;commit-hash-1&gt; &lt;commit-hash-2&gt;</code></pre>
+        <p>📊 Compare changes between two commits.</p>
+    </li>
+</ol>
+
+<h2>🗑️ Deleting Files</h2>
+
+<ol start="43">
+    <li>
+        <strong>Delete a file from the repository and stage the deletion:</strong>
+        <pre><code>git rm &lt;file&gt;</code></pre>
+        <p>🗑️ Remove a file from both your working directory and the repository.</p>
+    </li>
+
+    <li>
+        <strong>Commit the deletion with a message:</strong>
+        <pre><code>git commit -m "Delete &lt;file&gt;"</code></pre>
+        <p>💬 Commit the removal of the file with a message.</p>
+    </li>
+
+    <li>
+        <strong>Push the deletion to the remote repository:</strong>
+        <pre><code>git push</code></pre>
+        <p>📤 Update the remote repository to reflect the deletion.</p>
+    </li>
+</ol>
+
+<h2>🛠️ Advanced Commands</h2>
+
+<ol start="46">
+    <li>
+        <strong>Cherry-pick a commit:</strong>
+        <pre><code>git cherry-pick &lt;commit-hash&gt;</code></pre>
+        <p>🍒 Apply the changes from a specific commit to the current branch.</p>
+    </li>
+
+    <li>
+        <strong>Squash commits:</strong>
+        <pre><code>git rebase -i HEAD~&lt;number-of-commits&gt;</code></pre>
+        <p>🎯 Combine multiple commits into one.</p>
+    </li>
+
+    <li>
+        <strong>Bisect to find a bug:</strong>
+        <pre><code>git bisect start
+git bisect bad
+git bisect good &lt;commit-hash&gt;</code></pre>
+        <p>🔍 Use binary search to find the commit that introduced a bug.</p>
+    </li>
+
+    <li>
+        <strong>Add a submodule:</strong>
+        <pre><code>git submodule add &lt;repository-url&gt;</code></pre>
+        <p>📦 Include a repository inside another repository.</p>
+    </li>
+
+    <li>
+        <strong>Update submodules:</strong>
+        <pre><code>git submodule update --remote</code></pre>
+        <p>🔄 Update the submodules to the latest commit.</p>
+    </li>
+
+    <li>
+        <strong>Remove a file from Git tracking but keep it locally:</strong>
+        <pre><code>git rm --cached &lt;file&gt;</code></pre>
+    </li>
+</ol>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pip Commands</title>
+</head>
+<body>
+    <h1>🐍 Pip Commands! 🎉</h1>
+
+    <h2>🚀 Basic Commands</h2>
+    <h3><strong>Install a package</strong>:</h3>
+    <pre><code>pip install package_name</code></pre>
+    <hr>
+    <h3><strong>Upgrade a package</strong>:</h3>
+    <pre><code>pip install --upgrade package_name</code></pre>
+    <h3><strong>Uninstall a package</strong>:</h3>
+    <pre><code>pip uninstall package_name</code></pre>
+    <hr>
+
+    <h2>🔍 Searching & Listing</h2>
+    <h3><strong>Search for a package</strong>:</h3>
+    <pre><code>pip search search_term</code></pre>
+    <hr>
+    <h3><strong>List installed packages</strong>:</h3>
+    <pre><code>pip list</code></pre>
+    <hr>
+    <h3><strong>Show package details</strong>:</h3>
+    <pre><code>pip show package_name</code></pre>
+    <hr>
+
+    <h2>📦 Freezing & Requirements</h2>
+    <h3><strong>Freeze installed packages</strong>:</h3>
+    <pre><code>pip freeze</code></pre>
+    <hr>
+    <h3><strong>Save installed packages to a file</strong>:</h3>
+    <pre><code>pip freeze &gt; requirements.txt</code></pre>
+    <hr>
+    <h3><strong>Install from a requirements file</strong>:</h3>
+    <pre><code>pip install -r requirements.txt</code></pre>
+    <hr>
+
+    <h2>🛠️ Advanced Commands</h2>
+    <h3><strong>Check for outdated packages</strong>:</h3>
+    <pre><code>pip list --outdated</code></pre>
+    <hr>
+    <h3><strong>Upgrade all outdated packages</strong>:</h3>
+    <pre><code>pip install --upgrade $(pip list --outdated | awk 'NR&gt;2 {print $1}')</code></pre>
+    <hr>
+    <h3><strong>Install a specific version</strong>:</h3>
+    <pre><code>pip install package_name==version</code></pre>
+    <hr>
+    <h3><strong>Install from a URL</strong>:</h3>
+    <pre><code>pip install https://example.com/package.tar.gz</code></pre>
+    <hr>
+    <h3><strong>Install from a local directory</strong>:</h3>
+    <pre><code>pip install ./path/to/package</code></pre>
+    <hr>
+
+    <h2>🌟 Useful Tips</h2>
+    <h3><strong>Install with extras</strong>:</h3>
+    <pre><code>pip install package_name[extra]</code></pre>
+    <hr>
+    <h3><strong>Use a different index</strong>:</h3>
+    <pre><code>pip install package_name --index-url http://custom.index/simple/</code></pre>
+    <hr>
+    <h3><strong>Install in user site</strong>:</h3>
+    <pre><code>pip install --user package_name</code></pre>
+    <hr>
+    <h3><strong>Show help for pip</strong>:</h3>
+    <pre><code>pip help</code></pre>
+    <hr>
+    <h1>🐍</h1>
+</body>
+</html>

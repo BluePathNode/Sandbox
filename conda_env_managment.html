@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conda Environment Management</title>
+</head>
+<body>
+
+<h1>🐍 Conda Environment Management 🐍</h1>
+
+<hr>
+
+<h3>🛠️ Initial Setup</h3>
+
+<ol>
+    <li>
+        <strong>Create a New Environment:</strong>
+        <pre><code>conda create --name myenv</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Creates a new Conda environment named <code>myenv</code>.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Activate an Environment:</strong>
+        <pre><code>conda activate myenv</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Activates the Conda environment named <code>myenv</code>.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Deactivate an Environment:</strong>
+        <pre><code>conda deactivate</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Deactivates the current Conda environment and returns to the base environment (or system environment).</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h3>📦 Package Management</h3>
+
+<ol start="4">
+    <li>
+        <strong>Install a Package:</strong>
+        <pre><code>conda install package_name</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Installs a package into the current Conda environment.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Update a Package:</strong>
+        <pre><code>conda update package_name</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Updates a package in the current Conda environment to the latest version.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Remove a Package:</strong>
+        <pre><code>conda remove package_name</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Removes a package from the current Conda environment.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>List Installed Packages:</strong>
+        <pre><code>conda list</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Lists all packages installed in the current Conda environment.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Search for Packages:</strong>
+        <pre><code>conda search package_name</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Searches for available packages matching <code>package_name</code> in the Conda repositories.</li>
+        </ul>
+    </li>
+</ol>
+
+<hr>
+
+<h3>📁 Environment Configuration</h3>
+
+<ol start="9">
+    <li>
+        <strong>Export Environment Configuration:</strong>
+        <pre><code>conda env export &gt; environment.yml</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Exports the current environment configuration to an <code>environment.yml</code> file.</li>
+        </ul>
+    </li>
+
+    <li>
+        <strong>Clone an Environment:</strong>
+        <pre><code>conda create --name newenv --clone oldenv</code></pre>
+        <ul>
+            <li><strong>Description</strong>: Creates a new Conda environment <code>newenv</code> cloned from <code>oldenv</code>.</li>
+        </ul>
+    </li>
+</ol>
+
+</body>
+</html>
