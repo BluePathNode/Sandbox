@@ -1,5 +1,5 @@
 
-# 🎉 Fun and Colorful Git Commands Cheat Sheet 🎉
+# 🎉 Git Commands Cheat Sheet 🎉
 
 ## 🚀 Basic Commands
 
