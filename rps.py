@@ -33,7 +33,7 @@ player = int(playerchoice)
 
 
 
-
+# Error handling (simple)
 if player < 1 or player > 3:
     sys.exit("You must enter 1, 2, or 3.")
 
