@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>File Handling in Python - A Basic Tutorial</title>
+</head>
+<body>
+    <div class="container">
+    <h1>File Handling in Python - A Basic Tutorial</h1>
+    <p>This tutorial covers the fundamental concepts of file handling in Python. Below is a description of the key concepts with code examples.</p>
+
+    <h2>1. Opening and Closing Files</h2>
+    <p>You can open a file using the <code>open()</code> function. It’s important to close the file after you are done with it to free up system resources.</p>
+    <pre><code>file = open('example.txt', 'r')  # Open for reading
+file.close()                     # Close the file
+</code></pre>
+
+    <h2>2. Reading Files</h2>
+    <p>You can read the content of a file using various methods like <code>read()</code> and <code>readlines()</code>.</p>
+    <pre><code>with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+</code></pre>
+    <p>To read a file line by line:</p>
+    <pre><code>with open('example.txt', 'r') as file:
+    for line in file:
+        print(line.strip())
+</code></pre>
+
+    <h2>3. Writing to Files</h2>
+    <p>You can write to a file using the <code>write()</code> method. This will overwrite the existing content of the file.</p>
+    <pre><code>with open('example.txt', 'w') as file:
+    file.write("Hello, World!\n")
+    file.write("This is a new file.")
+</code></pre>
+
+    <h2>4. Appending to Files</h2>
+    <p>To append content to an existing file without overwriting it, use the <code>'a'</code> mode.</p>
+    <pre><code>with open('example.txt', 'a') as file:
+    file.write("\nAppending this line.")
+</code></pre>
+
+    <h2>5. Using 'with' for File Handling</h2>
+    <p>Using the <code>with</code> statement is the recommended way to handle files, as it ensures that files are properly closed even if an error occurs.</p>
+    <pre><code>with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+</code></pre>
+
+    <h2>6. Working with File Paths</h2>
+    <p>Python's <code>os</code> module provides utilities to interact with the file system, such as working with file paths.</p>
+    <pre><code>import os
+
+# Get the current working directory
+current_directory = os.getcwd()
+print(f"Current Directory: {current_directory}")
+
+# Join paths in a platform-independent way
+file_path = os.path.join(current_directory, 'example.txt')
+print(f"File Path: {file_path}")
+
+# Check if a file exists
+if os.path.exists(file_path):
+    print(f"The file {file_path} exists.")
+else:
+    print(f"The file {file_path} does not exist.")
+</code></pre>
+
+    <p>This concludes the basic tutorial on file handling in Python. Practice these concepts to solidify your understanding.</p>
+</div>
+</body>
+</html>

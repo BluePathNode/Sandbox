@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Logic Gates in Python</title>
+</head>
+<div class="container">
+<body>
+    <h1>Logic Gates in Python</h1>
+    <p>This document explains how different logic gates (used in electronics and programming) can be represented in Python using logical operators.</p>
+
+    <h2>1. NOT Gate</h2>
+    <p>The <strong>NOT gate</strong> inverts the input. If the input is <code>True</code>, the output is <code>False</code>, and vice versa.</p>
+    <p>- In Python, the <code>not</code> operator is used.</p>
+
+    <h3>Example:</h3>
+    <pre><code>not True  # Outputs: False
+not False # Outputs: True
+</code></pre>
+
+    <h3>Truth Table:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Input</th>
+                <th>Output (NOT)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>True</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>2. AND Gate</h2>
+    <p>The <strong>AND gate</strong> outputs <code>True</code> only if <strong>both</strong> inputs are <code>True</code>. Otherwise, it outputs <code>False</code>.</p>
+    <p>- In Python, the <code>and</code> operator is used.</p>
+
+    <h3>Example:</h3>
+    <pre><code>True and True   # Outputs: True
+True and False  # Outputs: False
+False and True  # Outputs: False
+</code></pre>
+
+    <h3>Truth Table:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Input 1</th>
+                <th>Input 2</th>
+                <th>Output (AND)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>True</td>
+                <td>True</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>True</td>
+                <td>False</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>False</td>
+                <td>False</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>3. NAND Gate</h2>
+    <p>The <strong>NAND gate</strong> (NOT AND) outputs the <strong>opposite</strong> of the AND gate. It outputs <code>True</code> unless <strong>both</strong> inputs are <code>True</code>.</p>
+    <p>- In Python, you can use <code>not</code> with <code>and</code>.</p>
+
+    <h3>Example:</h3>
+    <pre><code>not (True and True)  # Outputs: False
+not (True and False) # Outputs: True
+</code></pre>
+
+    <h3>Truth Table:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Input 1</th>
+                <th>Input 2</th>
+                <th>Output (NAND)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>True</td>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>True</td>
+                <td>False</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>True</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>False</td>
+                <td>True</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>4. NOR Gate</h2>
+    <p>The <strong>NOR gate</strong> (NOT OR) is the opposite of the OR gate. It outputs <code>True</code> only if <strong>both</strong> inputs are <code>False</code>.</p>
+    <p>- In Python, you can use <code>not</code> with <code>or</code>.</p>
+
+    <h3>Example:</h3>
+    <pre><code>not (True or True)  # Outputs: False
+not (False or False) # Outputs: True
+</code></pre>
+
+    <h3>Truth Table:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Input 1</th>
+                <th>Input 2</th>
+                <th>Output (NOR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>True</td>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>True</td>
+                <td>False</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>False</td>
+                <td>True</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>5. XOR Gate</h2>
+    <p>The <strong>XOR gate</strong> (exclusive OR) outputs <code>True</code> if <strong>only one</strong> of the inputs is <code>True</code>. If both are the same (both true or both false), it outputs <code>False</code>.</p>
+    <p>- In Python, you can simulate this using <code>!=</code> (not equal).</p>
+
+    <h3>Example:</h3>
+    <pre><code>True != True   # Outputs: False
+True != False  # Outputs: True
+</code></pre>
+
+    <h3>Truth Table:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Input 1</th>
+                <th>Input 2</th>
+                <th>Output (XOR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>True</td>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>True</td>
+                <td>False</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>True</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>False</td>
+                <td>False</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>6. XNOR Gate</h2>
+    <p>The <strong>XNOR gate</strong> (exclusive NOR) is the opposite of XOR. It outputs <code>True</code> if <strong>both inputs are the same</strong>.</p>
+    <p>- In Python, you can simulate this using <code>==</code>.</p>
+
+    <h3>Example:</h3>
+    <pre><code>True == True   # Outputs: True
+True == False  # Outputs: False
+</code></pre>
+
+    <h3>Truth Table:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Input 1</th>
+                <th>Input 2</th>
+                <th>Output (XNOR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>True</td>
+                <td>True</td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td>True</td>
+                <td>False</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>True</td>
+                <td>False</td>
+            </tr>
+            <tr>
+                <td>False</td>
+                <td>False</td>
+                <td>True</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Summary of Logic Gates:</h2>
+    <ul>
+        <li><strong>NOT</strong>: Inverts the input.</li>
+        <li><strong>AND</strong>: Both inputs must be true for a true output.</li>
+        <li><strong>NAND</strong>: Opposite of AND.</li>
+        <li><strong>OR</strong>: At least one input must be true.</li>
+        <li><strong>NOR</strong>: Opposite of OR.</li>
+        <li><strong>XOR</strong>: One input must be true, but not both.</li>
+        <li><strong>XNOR</strong>: Both inputs must be the same.</li>
+    </ul>
+</div>
+</body>
+</html>

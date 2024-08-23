@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>File Handling in Python - A Basic Tutorial with Comments</title>
+</head>
+<body>
+    <div class="container">
+    <h1>File Handling in Python - A Basic Tutorial with Comments</h1>
+    <p>This file demonstrates the basic concepts of file handling in Python, including:</p>
+    <ol>
+        <li>Opening and Closing Files</li>
+        <li>Reading Files</li>
+        <li>Writing to Files</li>
+        <li>Appending to Files</li>
+        <li>Using 'with' for File Handling</li>
+        <li>Working with File Paths</li>
+    </ol>
+
+    <h2>1. Opening and Closing Files</h2>
+    <pre><code># Open a file for reading (default mode)
+file = open('example.txt', 'r')
+# Perform file operations
+# Close the file
+file.close()
+</code></pre>
+
+    <h2>2. Reading Files</h2>
+    <pre><code># Reading the entire file content
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+
+# Reading line by line
+with open('example.txt', 'r') as file:
+    for line in file:
+        print(line.strip())
+</code></pre>
+
+    <h2>3. Writing to Files</h2>
+    <pre><code># Writing to a file (overwrites if the file exists)
+with open('example.txt', 'w') as file:
+    file.write("Hello, World!\n")
+    file.write("This is a new file.")
+</code></pre>
+
+    <h2>4. Appending to Files</h2>
+    <pre><code># Appending to a file (adds content to the end of the file)
+with open('example.txt', 'a') as file:
+    file.write("\nAppending this line.")
+</code></pre>
+
+    <h2>5. Using 'with' for File Handling</h2>
+    <pre><code># The 'with' statement ensures that the file is properly closed after its suite finishes, even if an exception is raised.
+with open('example.txt', 'r') as file:
+    content = file.read()
+    print(content)
+</code></pre>
+
+    <h2>6. Working with File Paths</h2>
+    <pre><code>import os
+
+# Get the current working directory
+current_directory = os.getcwd()
+print(f"Current Directory: {current_directory}")
+
+# Join paths in a platform-independent way
+file_path = os.path.join(current_directory, 'example.txt')
+print(f"File Path: {file_path}")
+
+# Check if a file exists
+if os.path.exists(file_path):
+    print(f"The file {file_path} exists.")
+else:
+    print(f"The file {file_path} does not exist.")
+</code></pre>
+</div>
+</body>
+</html>
