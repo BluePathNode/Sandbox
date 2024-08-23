@@ -26,7 +26,7 @@ else:
     playerchoice == computerchoice
     print(f"{playerchoice} is Correct!🎉")
     
-play_again = input("play again y/n: ")
+
     
     
     
