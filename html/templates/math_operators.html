@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Math operations</title>
+</head>
+<body>
+    <div class="container">
+    <h1>1. Basic Arithmetic Operations</h1>
+    <p>Write a Python program that takes two numbers as input from the user and performs basic arithmetic operations (addition, subtraction, multiplication, division). Print the results.</p>
+    <pre>
+        <code>
+# Input numbers
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+
+# Arithmetic operations
+addition = num1 + num2
+subtraction = num1 - num2
+multiplication = num1 * num2
+division = num1 / num2 if num2 != 0 else "undefined (division by zero)"
+
+# Display results
+print(f"Addition: {addition}")
+print(f"Subtraction: {subtraction}")
+print(f"Multiplication: {multiplication}")
+print(f"Division: {division}")
+        </code>
+    </pre>
+
+    <h1>2. Even or Odd</h1>
+    <p>Write a Python program that takes a number as input and determines whether it is even or odd.</p>
+    <pre>
+        <code>
+# Input number
+number = int(input("Enter a number: "))
+
+# Check even or odd
+if number % 2 == 0:
+    print(f"{number} is even.")
+else:
+    print(f"{number} is odd.")
+        </code>
+    </pre>
+
+    <h1>3. Factorial Calculation</h1>
+    <p>Write a Python program that calculates the factorial of a given number using a loop.</p>
+    <pre>
+        <code>
+# Input number
+number = int(input("Enter a number: "))
+
+# Calculate factorial
+factorial = 1
+for i in range(1, number + 1):
+    factorial *= i
+
+# Display result
+print(f"The factorial of {number} is {factorial}.")
+        </code>
+    </pre>
+
+    <h1>4. Prime Number Check</h1>
+    <p>Write a Python program that checks if a given number is prime.</p>
+    <pre>
+        <code>
+# Input number
+number = int(input("Enter a number: "))
+
+# Check if prime
+is_prime = True
+if number <= 1:
+    is_prime = False
+else:
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            is_prime = False
+            break
+
+# Display result
+if is_prime:
+    print(f"{number} is a prime number.")
+else:
+    print(f"{number} is not a prime number.")
+        </code>
+    </pre>
+
+    <h1>5. Reverse a String</h1>
+    <p>Write a Python program that reverses a given string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Reverse the string
+reversed_string = input_string[::-1]
+
+# Display result
+print(f"The reversed string is: {reversed_string}")
+        </code>
+    </pre>
+
+    <h1>6. List Operations</h1>
+    <p>Create a Python program that performs the following operations on a list of numbers:</p>
+    <ul>
+        <li>Finds the maximum and minimum values</li>
+        <li>Calculates the sum of all numbers</li>
+        <li>Sorts the list in ascending order</li>
+    </ul>
+    <pre>
+        <code>
+# Input list of numbers
+numbers = list(map(int, input("Enter numbers separated by spaces: ").split()))
+
+# Find max and min
+max_value = max(numbers)
+min_value = min(numbers)
+
+# Calculate sum
+total_sum = sum(numbers)
+
+# Sort the list
+sorted_numbers = sorted(numbers)
+
+# Display results
+print(f"Maximum value: {max_value}")
+print(f"Minimum value: {min_value}")
+print(f"Sum of numbers: {total_sum}")
+print(f"Sorted list: {sorted_numbers}")
+        </code>
+    </pre>
+
+</div>
+</body>
+</html>

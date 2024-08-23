@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Python String Exercises</title>
+</head>
+<body>
+    <div class="container">
+    <h1>1. String Length</h1>
+    <p>Write a Python program that takes a string as input and prints the length of the string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Calculate length
+length = len(input_string)
+
+# Display result
+print(f"The length of the string is: {length}")
+        </code>
+    </pre>
+
+    <h1>2. Vowel Count</h1>
+    <p>Write a Python program that counts the number of vowels in a given string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ").lower()
+
+# Define vowels
+vowels = "aeiou"
+
+# Count vowels
+vowel_count = sum(1 for char in input_string if char in vowels)
+
+# Display result
+print(f"The number of vowels in the string is: {vowel_count}")
+        </code>
+    </pre>
+
+    <h1>3. Palindrome Check</h1>
+    <p>Write a Python program that checks if a given string is a palindrome (reads the same forwards and backwards).</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Check if palindrome
+is_palindrome = input_string == input_string[::-1]
+
+# Display result
+if is_palindrome:
+    print(f"{input_string} is a palindrome.")
+else:
+    print(f"{input_string} is not a palindrome.")
+        </code>
+    </pre>
+
+    <h1>4. Word Count</h1>
+    <p>Write a Python program that counts the number of words in a given string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Count words
+word_count = len(input_string.split())
+
+# Display result
+print(f"The number of words in the string is: {word_count}")
+        </code>
+    </pre>
+
+    <h1>5. Character Frequency</h1>
+    <p>Write a Python program that counts the frequency of each character in a string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Count character frequency
+char_frequency = {}
+for char in input_string:
+    if char in char_frequency:
+        char_frequency[char] += 1
+    else:
+        char_frequency[char] = 1
+
+# Display result
+print("Character frequency:")
+for char, frequency in char_frequency.items():
+    print(f"{char}: {frequency}")
+        </code>
+    </pre>
+
+    <h1>6. Remove Duplicates</h1>
+    <p>Write a Python program that removes duplicate characters from a string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Remove duplicates
+unique_chars = ""
+for char in input_string:
+    if char not in unique_chars:
+        unique_chars += char
+
+# Display result
+print(f"String without duplicates: {unique_chars}")
+        </code>
+    </pre>
+
+    <h1>7. Replace Substring</h1>
+    <p>Write a Python program that replaces a substring within a string with another substring.</p>
+    <pre>
+        <code>
+# Input string and substrings
+input_string = input("Enter a string: ")
+old_substring = input("Enter the substring to replace: ")
+new_substring = input("Enter the new substring: ")
+
+# Replace substring
+modified_string = input_string.replace(old_substring, new_substring)
+
+# Display result
+print(f"Modified string: {modified_string}")
+        </code>
+    </pre>
+
+    <h1>8. Capitalize First Letter of Each Word</h1>
+    <p>Write a Python program that capitalizes the first letter of each word in a string.</p>
+    <pre>
+        <code>
+# Input string
+input_string = input("Enter a string: ")
+
+# Capitalize first letter of each word
+capitalized_string = input_string.title()
+
+# Display result
+print(f"Capitalized string: {capitalized_string}")
+        </code>
+    </pre>
+</div>
+</body>
+</html>
