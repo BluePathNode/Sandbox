@@ -35,7 +35,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .button {
-    display: block;
+    display: flex;
     width: 200px;
     padding: 10px;
     margin: 10px auto;
