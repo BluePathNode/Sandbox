@@ -1,3 +1,20 @@
+
+:root {
+    --lightbluenode: #007bff;
+    --bluenodehover: #0056b3;
+    --codegreen:     #41fc2d;
+    --codeblack:     #454545;
+    --slightwhite:   #f5f5f5;
+    --white:         #ffffff;
+    --titleblue:     #007bff;
+    --bodyslightwht: #f5f5f5;
+    --h1text:        #333333;
+    --h2text:        #444444;
+    --h3text:        #555555;
+    --pgraphtext:    #6e6e6e;
+    --foottext:      #888888;
+}
+
 .drz {
     background-image: url(../static/image/drz.webp);
     background-repeat: no-repeat;
@@ -13,7 +30,7 @@
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
-    background: #ffffff;
+    background: var(--white);
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -23,8 +40,8 @@
     padding: 10px;
     margin: 10px auto;
     text-align: center;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--lightbluenode);
+    color: var(--white);
     border: none;
     border-radius: 4px;
     text-decoration: none;
@@ -32,11 +49,11 @@
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: var(--bluenodehover);
 }
 
 .title{
-    background-color: #4177ff;
+    background-color: var(--titleblue);
     
 }    
 
@@ -48,27 +65,27 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: var(--bodyslightwht);
 }
 
 h1 {
     text-align: center;
-    color: #333;
-    border-bottom: 2px solid #007bff;
+    color: var(--h1text);
+    border-bottom: 2px solid var(--lightbluenode);
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
 h2 {
     text-align: center;
-    color: #444;
+    color: var(--h2text);
     margin-top: 20px;
 }
 h3 {
-    color: #555;
+    color: var(--h3text);
     margin-top: 15px;
 }
 p {
-    color: #666;
+    color: var(--pgraphtext);
     line-height: 1.8;
 }
 ul {
@@ -83,13 +100,13 @@ ul {
 }
 
 code {
-    background: #454545;
+    background: var(--codeblack);
     padding: 2px 6px;
     border-radius: 4px;
-    color: #45ff30;
+    color: var(--codegreen);
 }
 pre {
-    background: #e9ecef;
+    background: var(--codeblack);
     padding: 15px;
     border-radius: 4px;
     overflow-x: auto;
@@ -103,7 +120,7 @@ footer {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #ddd;
-    color: #888;
+    color: var(--foottext);
     text-align: center;
 }
 
