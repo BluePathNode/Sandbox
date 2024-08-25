@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Dinosaur Class OOP Tutorial</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Dinosaur Class OOP Tutorial</h1>
+
+    <h2>Step 1: Defining the Basic Dinosaur Class</h2>
+    <p>We'll start with a basic class that defines a dinosaur's name, period, and some typical behaviors.</p>
+    
+    <pre><code>
+class Dinosaur:
+    def __init__(self, name, period):
+        # Initialize the dinosaur's name and the geological period
+        self.name = name
+        self.period = period
+
+    def description(self):
+        # Return a string describing the dinosaur
+        return f"{self.name} lived during the {self.period} period."
+
+    def roar(self):
+        # Simulate the dinosaur roaring
+        return f"{self.name} says: 'Roar!'"
+    </code></pre>
+
+    <h2>Step 2: Adding More Attributes</h2>
+    <p>Let's add attributes such as diet (carnivore, herbivore, omnivore) and size to make our class more detailed.</p>
+
+    <pre><code>
+class Dinosaur:
+    def __init__(self, name, period, diet, size):
+        self.name = name
+        self.period = period
+        self.diet = diet
+        self.size = size
+
+    def description(self):
+        return f"{self.name} was a {self.size} {self.diet} dinosaur that lived during the {self.period} period."
+
+    def roar(self):
+        return f"{self.name} says: 'Roar!'"
+    </code></pre>
+
+    <h2>Step 3: Introducing Inheritance</h2>
+    <p>Let's create specialized classes for different dinosaur types, such as CarnivoreDinosaur and HerbivoreDinosaur.</p>
+
+    <pre><code>
+class CarnivoreDinosaur(Dinosaur):
+    def hunt(self):
+        return f"{self.name} is hunting."
+
+class HerbivoreDinosaur(Dinosaur):
+    def graze(self):
+        return f"{self.name} is grazing."
+    </code></pre>
+
+    <h2>Step 4: Adding Methods for Behavior</h2>
+    <p>We can add behaviors specific to each dinosaur type within their respective classes.</p>
+
+    <pre><code>
+class Dinosaur:
+    # Existing attributes and methods...
+
+class CarnivoreDinosaur(Dinosaur):
+    def __init__(self, name, period, size):
+        super().__init__(name, period, "carnivore", size)
+
+    def hunt(self):
+        return f"{self.name} is hunting for prey!"
+
+class HerbivoreDinosaur(Dinosaur):
+    def __init__(self, name, period, size):
+        super().__init__(name, period, "herbivore", size)
+
+    def graze(self):
+        return f"{self.name} is peacefully grazing."
+    </code></pre>
+
+    <h2>Final Step: Creating Objects and Using Our Classes</h2>
+    <p>Now we can create instances of Dinosaur, CarnivoreDinosaur, and HerbivoreDinosaur and demonstrate their functionality.</p>
+
+    <pre><code>
+t_rex = CarnivoreDinosaur("Tyrannosaurus Rex", "Cretaceous", "large")
+print(t_rex.description())  # Output: Tyrannosaurus Rex was a large carnivore dinosaur that lived during the Cretaceous period.
+print(t_rex.hunt())          # Output: Tyrannosaurus Rex is hunting for prey!
+
+brontosaurus = HerbivoreDinosaur("Brontosaurus", "Jurassic", "massive")
+print(brontosaurus.description())  # Output: Brontosaurus was a massive herbivore dinosaur that lived during the Jurassic period.
+print(brontosaurus.graze())        # Output: Brontosaurus is peacefully grazing.
+    </code></pre>
+<footer>
+    <h2>BluePathNode™️<h2><a href="../../index.html" class="button">Home</a>
+</footer>
+</div>
+</body>
+</html>
