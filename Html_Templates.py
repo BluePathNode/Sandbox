@@ -1,7 +1,7 @@
-# this script will write a set of html templates by either manually editing the HtmlTemplateDict
-# or parse html from a file 
+# this script will write a set of html templates from a dictionary HtmlTemplateDict
+# comes with a help section just run 
 
-# css support soon™️
+# css support soon™️ 
 import os
 import json
 from HtmlTemplateDict import template  # Import the existing template dictionary
