@@ -1,0 +1,192 @@
+/**/
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#wrapper {
+    border: solid;
+    padding: 15px;
+}
+
+@media (min-width:1200px){
+    #header{
+        height: 120px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+    #content{
+        border: solid rgb(255, 0, 0);
+        margin-top: 15px;
+        display: flex;
+    }
+    #left-panel{
+        border: solid rgb(0, 0, 0);
+        width:20%;
+    }
+    #navbar {
+        background-color: var(--lightbluenode);
+        height: 400px;
+        border-radius: 15px;
+    }
+    #news {
+        background-color: var(--h1text);
+        height: 200px;
+        border-radius: 15px; 
+        margin-top: 15px;
+    }
+    #right-section{
+        background-color: var(--pgraphtext);
+        height: 619px;
+        border-radius: 15px;
+        /* margin-top: 15px; */
+        width: 80%;
+    }
+    #footer{
+        height: 100px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+}
+
+@media (min-width:992px) and (max-width:1199px){
+    #header{
+        height: 120px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+    #content{
+        border: solid rgb(255, 0, 0);
+        margin-top: 15px;
+        display: flex;
+    }
+    #left-panel{
+        border: solid rgb(0, 0, 0);
+        width:20%;
+    }
+    #navbar {
+        background-color: var(--lightbluenode);
+        height: 400px;
+        border-radius: 15px;
+    }
+    #news {
+        background-color: var(--h1text);
+        height: 200px;
+        border-radius: 15px; 
+        margin-top: 15px;
+    }
+    #right-section{
+        background-color: var(--pgraphtext);
+        height: 619px;
+        border-radius: 15px;
+        /* margin-top: 15px; */
+        width: 80%;
+    }
+    #footer{
+        height: 100px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+}
+
+@media (min-width:768px) and (max-width:791px){
+    #header{
+        height: 120px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+    #content{
+        border: solid rgb(255, 0, 0);
+        margin-top: 15px;
+        display: flex;
+    }
+    #left-panel{
+        border: solid rgb(0, 0, 0);
+        width:20%;
+    }
+    #navbar {
+        background-color: var(--lightbluenode);
+        height: 100px;
+        border-radius: 15px;
+    }
+    #news {
+        background-color: var(--h1text);
+        height: 200px;
+        border-radius: 15px; 
+        margin-top: 15px;
+    }
+    #right-section{
+        background-color: var(--pgraphtext);
+        height: 619px;
+        border-radius: 15px;
+        /* margin-top: 15px; */
+        width: 80%;
+    }
+    #footer{
+        height: 100px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+}
+
+@media (min-width:767px) {
+    #header{
+        height: 120px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+    #content{
+        border: solid rgb(255, 0, 0);
+        margin-top: 15px;
+        display: flex;
+    }
+    #left-panel{
+        border: solid rgb(0, 0, 0);
+        width:20%;
+    }
+    #navbar {
+        background-color: var(--lightbluenode);
+        height: 100px;
+        border-radius: 15px;
+    }
+    #news {
+        background-color: var(--h1text);
+        height: 200px;
+        border-radius: 15px; 
+        margin-top: 15px;
+    }
+    #right-section{
+        background-color: var(--pgraphtext);
+        height: 619px;
+        border-radius: 15px;
+        /* margin-top: 15px; */
+        width: 80%;
+    }
+    #footer{
+        height: 100px;
+        background-color: var(--slightgrey);
+        border-radius: 15px;
+    }
+}
+
+
+
+
+
+:root {
+    --slightgrey:    #828282;
+    --lightbluenode: #007bff;
+    --bluenodehover: #0056b3;
+    --codegreen:     #41fc2d;
+    --codeblack:     #454545;
+    --slightwhite:   #f5f5f5;
+    --white:         #ffffff;
+    --titleblue:     #007bff;
+    --bodyslightwht: #f5f5f5;
+    --h1text:        #333333;
+    --h2text:        #444444;
+    --h3text:        #555555;
+    --pgraphtext:    #6e6e6e;
+    --foottext:      #888888;
+}

@@ -34,6 +34,22 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+nav {
+    padding: 10px;
+    background-color: var(--h3text);
+    
+}
+
+.drz_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url(../static/image/drz.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--bodyslightwht);
+}
+
 .button {
     display: block;
     width: 200px;
@@ -120,7 +136,7 @@ ol {
 footer {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid var(--white);
     color: var(--foottext);
     text-align: center;
 }
