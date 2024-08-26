@@ -1,5 +1,11 @@
-import os
-import json
+import os # import teh os
+import json # Import the Json
+#---------------------------------------------------------------------------------------------------------------
+# This file will output an html template based on whats stored in the companion JSON file HtmlTemplateDict.json
+# Contains a help section 
+# User can store some templates and have this script output them faster than just writing it out? idk maybe
+# Css support Soon™️
+#--------------------------------------------------------------------------------------------------------
 
 # Define the path to the HtmlTemplateDict.json file
 dict_path = 'HtmlTemplateDict.json'
