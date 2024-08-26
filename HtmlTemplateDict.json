@@ -1,3 +1,10 @@
 {
-    "Blank": "\n    <!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <link rel=\"stylesheet\" href=\"#\">\n        <title>Blank</title>\n    </head>\n    <body>\n        <footer>\n        </footer>\n    </body>\n</html>\n    "
+    "Blank": {
+        "html": "\n    <!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <link rel=\"stylesheet\" href=\"#\">\n        <title>Blank</title>\n    </head>\n    <body>\n        <footer>\n        </footer>\n    </body>\n</html>\n    ",
+        "css": null
+    },
+    "Two-Column Layout": {
+        "html": "\n    <!DOCTYPE html>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"UTF-8\">\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n        <link rel=\"stylesheet\" href=\"#\">\n        <title>Two Column layout</title>\n    </head>\n    <body>\n        <div class=\"container\">\n            <main class=\"content\">\n              <!-- Main content -->\n            </main>\n            <aside class=\"sidebar\">\n              <!-- Sidebar content -->\n            </aside>\n          </div>          \n        <footer>\n        </footer>\n    </body>\n</html>\n    ",
+        "css": ".container {\n    display: flex;\n  }\n  .content {\n    flex: 3; /* Main content takes 3/4 of the width */\n  }\n  .sidebar {\n    flex: 1; /* Sidebar takes 1/4 of the width */\n  }\n  "
+    }
 }
