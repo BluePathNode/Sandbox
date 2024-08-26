@@ -118,7 +118,6 @@ def view_template(template):
         print(f"Template '{template_name}' not found.")  # Inform the user if the template was not found
         
 def clear_screen():
-    
     system = platform.system() # Get the name of the operating system (e.g., "Windows", "Linux", "Darwin" for macOS)
     if system == 'Windows': # Check if the OS is Windows
         os.system('cls') # Use 'cls' command to clear the console on Windows 
