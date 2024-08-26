@@ -37,7 +37,7 @@ def load_dict():
         print(f"Error loading JSON data: {e}") # Print the error message with details of the exception
         save_template({}) # Save an empty dictionary to create a new file
         return {} # Return an empty dictionary if a decoding error occurs
-    except Exception as e: # Catch any other exceptions
+    except Exception as e: # Catch the unknown
         print(f"Error loading JSON data: {e}") # Print the error message
         save_template({}) # Save an empty dictionary to create a new file
         return {} # Return an empty dictionary
