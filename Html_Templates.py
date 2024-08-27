@@ -125,6 +125,8 @@ def clear_screen():
         os.system('clear') # Use 'clear' command to clear the console on macOS/Linux
         
 def main():
+    # The amount of elifs in this block is too damn high 
+
     """Main function to interact with user."""
     template = load_dict()  # Load the dictionary from the file
 
