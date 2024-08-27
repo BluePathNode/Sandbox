@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Conditional Logic Methods</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Conditional Logic Methods</h1>
+
+    <h2>1. Dictionaries for Lookup</h2>
+    <p><strong>Concept:</strong> Dictionaries in Python are key-value pairs. They can be used to map specific keys (conditions) to corresponding values or functions, allowing you to quickly look up the result based on the input key.</p>
+    
+    <h3>How It Works:</h3>
+    <ul>
+        <li><strong>Key-Value Mapping:</strong> Define a dictionary where keys represent different conditions and values represent the corresponding results or functions.</li>
+        <li><strong>Lookup:</strong> Use the dictionary to retrieve the result or function based on the key.</li>
+    </ul>
+    
+    <h3>Advantages:</h3>
+    <ul>
+        <li><strong>Simplicity:</strong> Easy to understand and implement.</li>
+        <li><strong>Performance:</strong> Fast lookups with dictionaries.</li>
+        <li><strong>Maintenance:</strong> Adding or modifying conditions is straightforward.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <pre><code>def handle_case_a():
+    return "Handled case A"
+
+def handle_case_b():
+    return "Handled case B"
+
+handlers = {
+    'case_a': handle_case_a,
+    'case_b': handle_case_b,
+}
+
+def process_case(case):
+    handler = handlers.get(case, lambda: "Default case")  # Default case if key not found
+    return handler()
+</code></pre>
+
+    <h2>2. Function Dispatching</h2>
+    <p><strong>Concept:</strong> Function dispatching involves selecting and calling functions dynamically based on some input. This can be achieved using dictionaries or other methods to map inputs to functions.</p>
+    
+    <h3>How It Works:</h3>
+    <ul>
+        <li><strong>Function Mapping:</strong> Create a dictionary or similar structure that maps inputs to function references.</li>
+        <li><strong>Dynamic Execution:</strong> Retrieve and execute the appropriate function based on the input.</li>
+    </ul>
+    
+    <h3>Advantages:</h3>
+    <ul>
+        <li><strong>Flexibility:</strong> Allows dynamic function execution based on input.</li>
+        <li><strong>Organization:</strong> Keeps function selection and execution separate from the core logic.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <pre><code>def case_a():
+    return "Handled case A"
+
+def case_b():
+    return "Handled case B"
+
+def default_case():
+    return "Default case"
+
+def dispatch_case(case):
+    switcher = {
+        'a': case_a,
+        'b': case_b
+    }
+    return switcher.get(case, default_case)()  # Call the function retrieved from the dictionary
+</code></pre>
+
+    <h2>3. Strategy Pattern</h2>
+    <p><strong>Concept:</strong> The Strategy pattern is a design pattern that defines a family of algorithms, encapsulates each one, and makes them interchangeable. It allows the algorithm to vary independently from the clients that use it.</p>
+    
+    <h3>How It Works:</h3>
+    <ul>
+        <li><strong>Strategy Interface:</strong> Define an interface or abstract class for the strategy (e.g., a method execute()).</li>
+        <li><strong>Concrete Strategies:</strong> Implement different strategies (classes) that adhere to this interface.</li>
+        <li><strong>Context:</strong> Use a context class to select and execute the appropriate strategy based on input.</li>
+    </ul>
+    
+    <h3>Advantages:</h3>
+    <ul>
+        <li><strong>Extensibility:</strong> New strategies can be added without modifying existing code.</li>
+        <li><strong>Encapsulation:</strong> Algorithms are encapsulated in their own classes.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <pre><code>class StrategyA:
+    def execute(self):
+        return "Strategy A executed"
+
+class StrategyB:
+    def execute(self):
+        return "Strategy B executed"
+
+class Context:
+    def __init__(self, strategy):
+        self._strategy = strategy
+
+    def execute_strategy(self):
+        return self._strategy.execute()
+
+strategies = {
+    'A': StrategyA(),
+    'B': StrategyB(),
+}
+
+def execute_strategy(strategy_key):
+    strategy = strategies.get(strategy_key)
+    if strategy:
+        context = Context(strategy)
+        return context.execute_strategy()
+    else:
+        return "Default strategy"
+</code></pre>
+
+    <h2>4. Command Pattern</h2>
+    <p><strong>Concept:</strong> The Command pattern encapsulates a request as an object, thereby allowing parameterization of clients with queues, requests, and operations. It also provides support for undoable operations.</p>
+    
+    <h3>How It Works:</h3>
+    <ul>
+        <li><strong>Command Interface:</strong> Define an interface or abstract class for commands with an execute() method.</li>
+        <li><strong>Concrete Commands:</strong> Implement concrete command classes that encapsulate specific operations.</li>
+        <li><strong>Invoker:</strong> Use an invoker class to issue commands.</li>
+        <li><strong>Receiver:</strong> The receiver is the object that performs the actual operation.</li>
+    </ul>
+    
+    <h3>Advantages:</h3>
+    <ul>
+        <li><strong>Decoupling:</strong> Separates the sender of a request from the receiver.</li>
+        <li><strong>Undo Functionality:</strong> Commands can be undone or redone if needed.</li>
+    </ul>
+    
+    <h3>Example:</h3>
+    <pre><code>class Command:
+    def execute(self):
+        raise NotImplementedError("Subclasses should implement this!")
+
+class CommandA(Command):
+    def execute(self):
+        return "Command A executed"
+
+class CommandB(Command):
+    def execute(self):
+        return "Command B executed"
+
+class Invoker:
+    def __init__(self):
+        self._commands = {}
+
+    def set_command(self, name, command):
+        self._commands[name] = command
+
+    def execute_command(self, name):
+        command = self._commands.get(name)
+        if command:
+            return command.execute()
+        else:
+            return "Default command"
+
+# Usage
+invoker = Invoker()
+invoker.set_command('command_a', CommandA())
+invoker.set_command('command_b', CommandB())
+print(invoker.execute_command('command_a'))
+</code></pre>
+
+    <h2>Summary</h2>
+    <ul>
+        <li><strong>Dictionaries for Lookup:</strong> Great for simple, direct mapping of conditions to results or functions.</li>
+        <li><strong>Function Dispatching:</strong> Useful for dynamic function selection and execution.</li>
+        <li><strong>Strategy Pattern:</strong> Ideal for encapsulating and switching between different algorithms or behaviors.</li>
+        <li><strong>Command Pattern:</strong> Best for encapsulating requests, supporting undo functionality, and separating request issuance from execution.</li>
+    </ul>
+    <p>Starting with dictionaries for lookup will provide a solid foundation, and as you gain more experience, you can explore more advanced design patterns like Strategy and Command.</p>
+    <footer>
+        <h2>BluePathNode™</h2>
+        <a href="../../index.html" class="button">Home</a>
+      </footer>
+    </div>
+</body>
+</html>

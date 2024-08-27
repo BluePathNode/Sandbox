@@ -1,0 +1,17 @@
+:root {
+  --lightgrey: #8e8e8e;
+  --darkgrey:  #636363;
+}
+
+.container {
+  height: 900px;
+  display: flex;
+}
+.left-sidebar, .right-sidebar {
+  background-color: var(--darkgrey);
+  flex: 1; /* Each sidebar takes 1/4 */
+}
+.content {
+  background-color: var(--lightgrey);
+  flex: 2; /* Main content takes 2/4 */
+}

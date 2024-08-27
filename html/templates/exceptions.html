@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Exception Types in Python</title>
+</head>
+<body>
+    <div class="container">
+    <h1>Exception Types</h1>
+    <p>In Python, exceptions represent errors that occur during the execution of a program. There are many built-in exception types, each representing a specific kind of error. Here's an overview of some common exception types:</p>
+    
+    <h2>1. KeyError</h2>
+    <p><strong>When it occurs:</strong> Raised when a dictionary key is accessed that does not exist.</p>
+    <pre><code>data = {"name": "Alice"}
+print(data["age"])  # Raises KeyError because 'age' is not a key in the dictionary</code></pre>
+    
+    <h2>2. ValueError</h2>
+    <p><strong>When it occurs:</strong> Raised when a function receives an argument of the correct type but an inappropriate value.</p>
+    <pre><code>num = int("abc")  # Raises ValueError because "abc" cannot be converted to an integer</code></pre>
+    
+    <h2>3. TypeError</h2>
+    <p><strong>When it occurs:</strong> Raised when an operation or function is applied to an object of inappropriate type.</p>
+    <pre><code>result = "5" + 5  # Raises TypeError because you can't add a string to an integer</code></pre>
+    
+    <h2>4. IndexError</h2>
+    <p><strong>When it occurs:</strong> Raised when trying to access an index that is out of the valid range for a list, tuple, or similar sequence.</p>
+    <pre><code>my_list = [1, 2, 3]
+print(my_list[5])  # Raises IndexError because index 5 is out of range</code></pre>
+    
+    <h2>5. AttributeError</h2>
+    <p><strong>When it occurs:</strong> Raised when an attribute reference or assignment fails, typically when the object does not have that attribute.</p>
+    <pre><code>my_list = [1, 2, 3]
+my_list.append()  # Raises AttributeError because append requires an argument</code></pre>
+    
+    <h2>6. NameError</h2>
+    <p><strong>When it occurs:</strong> Raised when a local or global name is not found.</p>
+    <pre><code>print(x)  # Raises NameError because 'x' is not defined</code></pre>
+    
+    <h2>7. FileNotFoundError</h2>
+    <p><strong>When it occurs:</strong> Raised when trying to open a file that does not exist.</p>
+    <pre><code>with open("nonexistent_file.txt", "r") as file:
+    data = file.read()  # Raises FileNotFoundError</code></pre>
+    
+    <h2>8. ZeroDivisionError</h2>
+    <p><strong>When it occurs:</strong> Raised when attempting to divide a number by zero.</p>
+    <pre><code>result = 10 / 0  # Raises ZeroDivisionError because division by zero is undefined</code></pre>
+    
+    <h2>9. ImportError</h2>
+    <p><strong>When it occurs:</strong> Raised when an import statement fails to find the module or import specific functions/classes from the module.</p>
+    <pre><code>import nonexistent_module  # Raises ImportError</code></pre>
+    
+    <h2>10. IOError</h2>
+    <p><strong>When it occurs:</strong> Raised when an input/output operation (like reading or writing a file) fails for an I/O-related reason.</p>
+    <p><strong>Note:</strong> Starting from Python 3.3, IOError is merged into OSError.</p>
+    <pre><code>with open("somefile.txt", "r") as file:
+    data = file.read()  # Could raise IOError if something goes wrong during I/O</code></pre>
+    
+    <h2>11. RuntimeError</h2>
+    <p><strong>When it occurs:</strong> Raised when an error occurs that doesn’t fall into any other category. Often used for errors related to incorrect program logic.</p>
+    <pre><code>def my_func():
+    raise RuntimeError("This is a runtime error")
+
+my_func()  # Raises RuntimeError with a custom message</code></pre>
+    
+    <h2>12. StopIteration</h2>
+    <p><strong>When it occurs:</strong> Raised to signal the end of an iteration, typically used by iterators to let the for loop know when to stop.</p>
+    <pre><code>my_iter = iter([1, 2, 3])
+while True:
+    print(next(my_iter))  # Raises StopIteration when the iterator is exhausted</code></pre>
+    
+    <h2>13. AssertionError</h2>
+    <p><strong>When it occurs:</strong> Raised when an assert statement fails.</p>
+    <pre><code>x = 5
+assert x > 10, "x is not greater than 10"  # Raises AssertionError</code></pre>
+    
+    <h2>14. OSError</h2>
+    <p><strong>When it occurs:</strong> Raised for system-related errors such as file system issues, failed system calls, or out-of-memory conditions.</p>
+    <pre><code>import os
+os.remove("non_existent_file.txt")  # Raises OSError if the file does not exist</code></pre>
+    
+    <h2>15. MemoryError</h2>
+    <p><strong>When it occurs:</strong> Raised when an operation runs out of memory, typically when trying to create a huge data structure or perform a resource-heavy operation.</p>
+    <pre><code>huge_list = [0] * 10**10  # Might raise MemoryError if the system runs out of memory</code></pre>
+    
+    <h2>Custom Exception Handling</h2>
+    <p>You can also create your own custom exceptions by subclassing the built-in Exception class:</p>
+    <pre><code>class CustomError(Exception):
+    pass
+
+def my_function():
+    raise CustomError("This is a custom error")
+
+try:
+    my_function()
+except CustomError as e:
+    print(f"Caught custom error: {e}")</code></pre>
+    </div>
+    <footer>
+        <h2>BluePathNode™</h2>
+        <a href="../../index.html" class="button">Home</a>
+    </footer>
+</body>
+</html>
