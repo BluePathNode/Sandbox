@@ -1,6 +1,7 @@
 import os # import teh os
 import json # Import the Json
 import platform # Import the platform module to identify the operating system
+import webbrowser # Import the webbrowser module to open URLs in the user's default web browser
 
 #---------------------------------------------------------------------------------------------------------------
 # This file will output an html template based on whats stored in the companion JSON file HtmlTemplateDict.json
@@ -9,7 +10,7 @@ import platform # Import the platform module to identify the operating system
 #--------------------------------------------------------------------------------------------------------
 
 # Define the path to the HtmlTemplateDict.json file
-dict_path = 'HtmlTemplateDict.json'
+template_dict_path = 'HtmlTemplateDict.json'
 
 # Define error message for invalid file paths
 path_error_text = '''
@@ -25,16 +26,17 @@ help_text = '''
 /add -b     Batch add from a folder
 /del        Delete a template
 /view       View a template in console
+/view -o    View a template in the default browser
 /cls        Clears the console
 /quit       Exit script
 '''
 
 def load_dict():
     """Load the dictionary from HtmlTemplateDict.json."""   
-    if not os.path.isfile(dict_path):  # Check if the JSON file exists
+    if not os.path.isfile(template_dict_path):  # Check if the JSON file exists
         return {}  # Return an empty dictionary if the file does not exist 
     try:
-        with open(dict_path, "r") as file: # Open the JSON file in read mode  
+        with open(template_dict_path, "r") as file: # Open the JSON file in read mode  
             return json.load(file) # Try to load the content of the file as a dictionary
     except json.JSONDecodeError as e: # Catch any JSON decoding errors
         print(f"Error loading JSON data: {e}") # Print the error message with details of the exception
@@ -47,7 +49,7 @@ def load_dict():
 
 def save_template(template_dict):
     """Save the dictionary to HtmlTemplateDict.json."""
-    with open(dict_path, "w") as file:  # Open the file in write mode
+    with open(template_dict_path, "w") as file:  # Open the file in write mode
         json.dump(template_dict, file, indent=4) # Write the dictionary to the file in a JSON format
 
 def delete_template(template):
@@ -142,22 +144,53 @@ def list_templates(template):
     print(template_list) # Print the list of templates
     print("-" * 30) # Print a separator
 
-def view_template(template):
-    """View a template."""
-    template_name = input("Enter the name of the template to view (use /list) \n :>")  # Input the template name, might need to use /list first 
+def view_template(template, open_in_browser=False):
+    """View a template and optionally open in a browser."""
+    
+    # Ask the user for the template name they want to view
+    template_name = input("Enter the name of the template to view (use /list to see available templates):> ")
+    
+    # Check if the template exists in the dictionary
     if template_name in template:
-        print("-" * 30)  # Print a separator
-        print(f"Content of {template_name}")  # Print the template name
-        print("HTML Content:")
-        print(template[template_name]["html"])  # Print the content of the HTML template
-        print("CSS Content:")
-        print(template[template_name].get("css", "No CSS content available."))  # Print the content of the CSS template if available
-        print("-" * 30)  # Print a separator
-    elif template_name == "/list":
-        list_templates(template)  # Call list_templates function to show available templates
-    else:
-        print(f"Template '{template_name}' not found.")  # Inform the user if the template was not found
+        # Get the HTML content from the template dictionary for the selected template
+        html_content = template[template_name]["html"]
+        # Get the CSS content, defaulting to "No CSS content available" if there is none
+        css_content = template[template_name].get("css", "No CSS content available.")
         
+        # Handle browser opening logic
+        if open_in_browser:  # If open_in_browser is True, open the template in a web browser
+            try:
+                # Define a temporary file path for the HTML file to be opened in the browser
+                temp_html_path = "temp_template.html"
+                
+                # Open the temporary HTML file for writing, using UTF-8 encoding
+                with open(temp_html_path, "w", encoding="utf-8") as file:
+                    # Write the HTML content from the template to the file
+                    file.write(html_content)
+                    
+                # Open the newly created temporary HTML file in the default web browser
+                webbrowser.open(f"file://{os.path.abspath(temp_html_path)}")
+                # Notify the user that the template was opened in the browser
+                print(f"Template opened in browser: {temp_html_path}")
+            except IOError as e:
+                # Handle any file I/O errors and notify the user if opening the file failed
+                print(f"Error opening file in browser: {e}")
+        else:
+            # If not opening in the browser, print the template content to the console
+            print("-" * 30)  # Print a divider line
+            print(f"Content of {template_name}")  # Print the template name
+            print("HTML Content:")  # Label for HTML content
+            print(html_content)  # Output the HTML content of the template
+            print("CSS Content:")  # Label for CSS content
+            print(css_content)  # Output the CSS content of the template (if available)
+            print("-" * 30)  # Print another divider line 
+    elif template_name == "/list":
+        # If the user inputs "/list", call a function to list all available templates
+        list_templates(template)
+    else:
+        # If the template name is not found in the dictionary, notify the user
+        print(f"Template '{template_name}' not found.")
+
 def clear_screen():
     system = platform.system() # Get the name of the operating system (e.g., "Windows", "Linux", "Darwin" for macOS)
     if system == 'Windows': # Check if the OS is Windows
@@ -195,8 +228,13 @@ def main():
         elif entry == "/del":  # Check if the user wants to delete a template
             delete_template(template)  # Call the delete_template function
             
-        elif entry == "/view":  # Check if the user wants to view a template
-            view_template(template)  # Call the view_template function
+        elif entry.startswith("/view"):  # Check if the user input starts with the "/view" command
+            if "-o" in entry:  # Check for the Open in Browser flag ("-o") in the user input
+                view_template(template, open_in_browser=True) # Call view_template with open_in_browser set to True to open the template in a browser
+            else:
+                view_template(template) # If no "-o" flag is present, call view_template to just display the template in the console
+           
+           
             
         elif entry == "/cls":
             clear_screen()
