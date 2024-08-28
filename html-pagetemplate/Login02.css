@@ -1,0 +1,18 @@
+body {
+    background-color: #f7f7f7;
+    font-family: 'Roboto', sans-serif;
+}
+
+.login-container {
+    min-height: 100vh;
+}
+
+.login-form {
+    width: 300px;
+}
+
+.login-form .form-control {
+    margin-bottom: 20px;
+    box-shadow: none;
+    border: 1px solid #ccc;
+}

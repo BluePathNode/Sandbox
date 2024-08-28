@@ -22,7 +22,6 @@ Example: C:\\Users\\User\\Documents\\your_file_name.html
 help_text = '''
 /list       List of available templates
 /add        Add a template from file
-/add -b     Batch add from a folder
 /del        Delete a template
 /view       View a template in console
 /cls        Clears the console
@@ -60,81 +59,41 @@ def delete_template(template):
     else:
         print(f"{template_name} not found.") # Inform the user if the template was not found
 
-def add_template(template, batch_mode=False, folder_path=None):  # Define the function to add templates
-    """Add templates from files to the dictionary."""  # Docstring to describe the function
-    
-    # Batch mode: walk through the directory and add each template
-    if batch_mode:  # Check if batch_mode is enabled
-        if folder_path and os.path.isdir(folder_path):  # Check if folder_path is valid and is a directory
-            for root, dirs, files in os.walk(folder_path):  # Walk through the folder
-                for file in files:  # Loop through each file in the directory
-                    if file.endswith(".html") or file.endswith(".css"):  # Check if the file is an HTML or CSS file
-                        template_name, ext = os.path.splitext(file)  # Split the file name and extension
-                        full_file_path = os.path.join(root, file)  # Get the full file path
-
-                        try:
-                            with open(full_file_path, "r", encoding="utf-8") as f:  # Open the file with utf-8 encoding
-                                content = f.read()  # Read the content of the file
-
-                            # Determine whether to store HTML or CSS content
-                            if ext == ".html":  # If the file is an HTML file
-                                if template_name not in template:  # If template doesn't already exist
-                                    template[template_name] = {"html": content, "css": None}  # Add HTML with no CSS
-                                else:  # If template already exists
-                                    template[template_name]["html"] = content  # Update HTML content only
-                            elif ext == ".css":  # If the file is a CSS file
-                                if template_name not in template:  # If template doesn't already exist
-                                    template[template_name] = {"html": None, "css": content}  # Add CSS with no HTML
-                                else:  # If template already exists
-                                    template[template_name]["css"] = content  # Update CSS content only
-
-                            print(f"Added {file} as {template_name}")  # Notify user the template was added
-                        except FileNotFoundError:  # Catch if the file wasn't found
-                            print(f"File not found: {full_file_path}")  # Print an error for missing files
-                        except UnicodeDecodeError:  # Catch if there is a character encoding error
-                            print(f"Error reading file: {full_file_path}")  # Print an error for reading files
-
-            save_template(template)  # Save the updated template dictionary
-            print("Batch adding complete.")  # Notify user that batch adding is done
-        else:
-            print(f"Invalid directory: {folder_path}")  # Print an error if the folder path is invalid
-        return  # Exit the function
-
-    # Single template mode (existing behavior)
+def add_template(template):
+    """Add a template from files to the dictionary."""
     html_path = input("Enter the HTML file path:>")  # Get the HTML file path from the user
-    css_path = input("Enter the CSS file path (leave blank if none):>")  # Get the CSS file path, if applicable
-    template_name = input("Enter the template name:>")  # Get the template name from the user
-
+    css_path = input("Enter the CSS file path (leave blank if none):>")  # Get the CSS file path from the user, optional
+    template_name = input("Enter the template name:>")  # Get the template name from the user   
+    
     if not os.path.isfile(html_path):  # Check if the HTML file exists
-        print("!" * 50)  # Print separator for emphasis
-        print(f"{html_path} is not valid")  # Notify user of invalid file path
-        print(path_error_text)  # Display the error message for invalid paths
-        print("!" * 50)  # Print separator for emphasis
-        return  # Exit the function if the file path is invalid
+        print("!" * 50)  # Print a separator
+        print(f"{html_path} is not valid")  # Print the invalid file path message
+        print(path_error_text)  # Print the path error text
+        print("!" * 50)  # Print a separator
+        return  # Exit the function       
 
     try:
-        with open(html_path, "r", encoding="utf-8") as html_file:  # Open the HTML file in utf-8 encoding
-            html_content = html_file.read()  # Read the HTML content
+        with open(html_path, "r", encoding="utf-8") as html_file:  # Open the HTML file in read mode with UTF-8 encoding
+            html_content = html_file.read()  # Read the content of the HTML file
             
-            css_content = None  # Initialize CSS content as None
-            if css_path and os.path.isfile(css_path):  # Check if CSS file path is valid and exists
-                with open(css_path, "r", encoding="utf-8") as css_file:  # Open the CSS file in utf-8 encoding
-                    css_content = css_file.read()  # Read the CSS content
-            elif css_path:  # If the CSS path was provided but the file doesn't exist
-                print(f"CSS file {css_path} not found.")  # Notify user that CSS file is missing
-
-            # Add the HTML and CSS content to the template dictionary
+            css_content = None
+            if css_path and os.path.isfile(css_path):  # Check if a CSS file path was provided and if it exists
+                with open(css_path, "r", encoding="utf-8") as css_file:  # Open the CSS file
+                    css_content = css_file.read()  # Read the content of the CSS file
+            elif css_path:
+                print(f"CSS file {css_path} not found.")  # Inform the user if the CSS file was not found
+            
             template[template_name] = {
-                "html": html_content,  # Store the HTML content
-                "css": css_content  # Store the CSS content or None if no CSS provided
-            }
-            save_template(template)  # Save the updated template dictionary
-            print(f"Template named '{template_name}' has been created.")  # Notify user that the template is created
-    except FileNotFoundError:  # Catch if the HTML or CSS file wasn't found
-        print("File not found. Please check the file path.")  # Print error message for missing file
-    except UnicodeDecodeError:  # Catch if there's an encoding issue
-        print(f"Error reading file {template_name}, it may contain special characters.")  # Print error for decoding issue
-        
+                "html": html_content,
+                "css": css_content
+            }  # Add the new template to the dictionary
+            save_template(template)  # Save the updated dictionary to the file
+            print(f"Template named '{template_name}' has been created.")  # Print confirmation message                  
+    except FileNotFoundError:
+        print("File not found. Please check the file path.")  # Print an error message if the file is not found
+    except UnicodeDecodeError:
+        print(f"Error reading file {template_name} may contain special characters")  # Print error message if file contains unsupported characters
+
 def list_templates(template):
     """List all available templates."""
     template_list = "\n".join([key for key in template.keys()]) # Generate a list of template names
@@ -167,11 +126,14 @@ def clear_screen():
         
 def main():
     # The amount of elifs in this block is too damn high 
-    template = load_dict()
 
-    while True:  # Run an infinite loop for user input
-        print("Enter a template name (case sensitive) or type /help")  # Prompt the user for a command or template name
-        entry = input(":>")  # Get the user's input
+    """Main function to interact with user."""
+    template = load_dict()  # Load the dictionary from the file
+
+    while True:
+        print("Enter a template name (case sensitive) or type /help")  # Prompt the user for input
+        
+        entry = input(":>")  # Get user input
         
         if entry == "/list":  # Check if the user wants to list templates
             list_templates(template)
@@ -185,12 +147,9 @@ def main():
             print("Quitting..")  # Print a quitting message
             break  # Exit the loop
 
-        elif entry.startswith("/add"):  # Check if the user input starts with "/add" command
-            if "-b" in entry:  # Check for batch mode (-b flag)
-                folder_path = input("Enter the folder path for batch adding templates:> ")  # Get folder path
-                add_template(template, batch_mode=True, folder_path=folder_path)  # Call add_template in batch mode
-            else:
-                add_template(template)  # Call add_template in regular mode
+        elif entry == "/add":  # Check if the user wants to add a template
+            add_template(template)  # Call the add_template function
+            template = load_dict()  # Reload the dictionary after adding the new template
             
         elif entry == "/del":  # Check if the user wants to delete a template
             delete_template(template)  # Call the delete_template function

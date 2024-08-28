@@ -1,0 +1,13 @@
+header {
+    background: url('https://via.placeholder.com/1600x600') no-repeat center center;
+    background-size: cover;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-img-top {
+    border-radius: 10px 10px 0 0;
+}
