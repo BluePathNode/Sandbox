@@ -3,11 +3,13 @@ import json # Import the Json
 import platform # Import the platform module to identify the operating system
 import webbrowser # Import the webbrowser module to open URLs in the user's default web browser
 
-#---------------------------------------------------------------------------------------------------------------
-# This file will output an html template based on whats stored in the companion JSON file HtmlTemplateDict.json
-# Contains a help section 
-# User can store some templates and have this script output them faster than just writing it out? idk maybe
-#--------------------------------------------------------------------------------------------------------
+'''
+  This file will output an html template based on whats stored in the companion JSON file HtmlTemplateDict.json
+ Contains a help section 
+ User can store some templates and have this script output them faster than just writing it out? Probably not :/
+ 
+ '''
+
 
 # Define the path to the HtmlTemplateDict.json file
 template_dict_path = 'HtmlTemplateDict.json'
@@ -26,7 +28,7 @@ help_text = '''
 /add -b     Batch add from a folder
 /del        Delete a template
 /view       View a template in console
-/view -o    View a template in the default browser
+/view -o    View a template in the default browser (kinda buggy)
 /cls        Clears the console
 /quit       Exit script
 '''
@@ -163,6 +165,11 @@ def view_template(template, open_in_browser=False):
                 # Define a temporary file path for the HTML file to be opened in the browser
                 temp_html_path = "temp_template.html"
                 
+                # Embed CSS into the HTML content
+                if css_content:
+                    # Add a <style> tag with CSS content inside the <head> section of the HTML
+                    html_content = f"<html><head><style>{css_content}</style></head><body>{html_content}</body></html>"
+
                 # Open the temporary HTML file for writing, using UTF-8 encoding
                 with open(temp_html_path, "w", encoding="utf-8") as file:
                     # Write the HTML content from the template to the file
